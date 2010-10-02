@@ -27,7 +27,7 @@ describe PagesController do
 
 	describe "GET 'about'" do
 		it "should be successful" do
-			get 'about'
+			get 'home'
 			response.should be_success
 		end
 		it "should have the right title" do
