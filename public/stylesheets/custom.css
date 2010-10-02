@@ -98,3 +98,19 @@ a.signup_button {
 	-moz-border-radius: 20px;
 	-moz-box-shadow: 0 0 5px black;
 }
+
+
+
+/*    ROUNDED CORNERS    */
+
+.roundsm {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.roundlg {
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+}
