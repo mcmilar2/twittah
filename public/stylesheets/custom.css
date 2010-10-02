@@ -77,3 +77,20 @@ nav ul li a:visited {
 nav ul li a:hover {
 	text-decoration: underline;
 }
+
+
+
+/*     SIGN-UP BUTTON    */
+
+a.signup_botton {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	text-align: center;
+	width: 250px;
+	color: #ffffff;
+	background: #006400;
+	font-size: 180%;
+	font-weight: bold;
+	padding: 20px;
+}
