@@ -8,12 +8,10 @@ body {
 
 header {
 	padding-top: 20px;
-	background: #ffffff;
 }
 
 header img {
 	padding: 1em;
-	background #ffffff;
 }
 
 section {
@@ -26,6 +24,8 @@ section {
 section h1 {
 	font-size: 200%;
 }
+
+
 
 /*   LINKS   */
 
@@ -41,4 +41,38 @@ a:hover {
 
 a:visited {
 	color: #006699;
+}
+
+
+
+/*   NAVIGATION   */
+
+nav {
+	background-color: white;
+	padding: 0 0.7em;
+	white-space: nowrap;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+nav ul li {
+	list-style-type: none;
+	display: inline-block;
+	padding: 0.2em 0;
+}
+
+nav ul li a {
+	padding: 0 5px;
+	font-weight: bold;
+}
+
+nav ul li a:visited {
+	color: #0099cc;
+}
+
+nav ul li a:hover {
+	text-decoration: underline;
 }
