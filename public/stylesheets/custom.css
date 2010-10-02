@@ -15,10 +15,11 @@ header img {
 }
 
 section {
+	color: white;
 	margin-top: 1em;
 	font-size: 120%;
 	padding: 20px;
-	background: #ffffff;
+	background: #66ffff;
 }
 
 section h1 {
@@ -88,7 +89,7 @@ a.signup_button {
 	display: block;
 	text-align: center;
 	width: 250px;
-	color: #ffffff;
+	color: #1111DD;
 	background: #EEBF52;
 	font-size: 180%;
 	font-weight: bold;
