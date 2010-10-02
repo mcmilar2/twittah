@@ -1,0 +1,43 @@
+.container {
+	width: 800px;
+}
+
+body {
+	background: #ccffff;
+}
+
+header {
+	paddint-top: 20px;
+}
+
+header img {
+	padding: 1em;
+	background #ffffff;
+}
+
+section {
+	margin-top: 1em;
+	font-size: 120%;
+	padding: 20px;
+	background: #ffffff;
+}
+
+section h1 {
+	font-size: 200%;
+}
+
+/*   LINKS   */
+
+a {
+	color: #0099cc;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #006699;
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #006699;
+}
