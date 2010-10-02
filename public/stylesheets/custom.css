@@ -3,7 +3,7 @@
 }
 
 body {
-	background: #ccffff;
+	background: #eeeeee;
 }
 
 header {
@@ -15,11 +15,12 @@ header img {
 }
 
 section {
-	color: white;
+	color: #000000;
 	margin-top: 1em;
 	font-size: 120%;
 	padding: 20px;
-	background: #66ffff;
+	background: #dddddd;
+	-moz-border-radius: 10px;
 }
 
 section h1 {
@@ -95,4 +96,5 @@ a.signup_button {
 	font-weight: bold;
 	padding: 20px;
 	-moz-border-radius: 20px;
+	-moz-box-shadow: 0 0 5px black;
 }
