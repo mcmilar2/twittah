@@ -89,8 +89,9 @@ a.signup_button {
 	text-align: center;
 	width: 250px;
 	color: #ffffff;
-	background: #006400;
+	background: #000099;
 	font-size: 180%;
 	font-weight: bold;
 	padding: 20px;
+	-moz-border-radius: 20px;
 }
