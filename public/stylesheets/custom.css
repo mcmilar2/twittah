@@ -14,6 +14,18 @@ header img {
 	padding: 1em;
 }
 
+footer {
+	text-align: center;
+	margin-top: 10px;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+footer nav {
+	float: none;
+}
+
 section {
 	color: #000000;
 	margin-top: 1em;

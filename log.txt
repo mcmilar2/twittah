@@ -1,0 +1,167 @@
+commit 0c9d67b361c77b34771237ecb5e9a63e24e0273b
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 23:04:06 2010 +1300
+
+    Implementing Partials
+
+commit cbe59b92549c75b80340742d485efd70019a3bc1
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 23:03:50 2010 +1300
+
+    Implementing Partials
+
+commit 155ab19c6cfb51f3d9c1e2ab1559e6e07f2ec6ee
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 22:45:17 2010 +1300
+
+    Styles! (again!)
+
+commit c892ee8de936ee9123a8078fe8e8672e0560d7d3
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 22:33:16 2010 +1300
+
+    Styled!
+
+commit 4f1db4172c5a50adf3f66a1697ccd03fec55ac43
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 22:30:05 2010 +1300
+
+    Styled!
+
+commit e33c9d888b905864282b08eae9c41e9e04daab7b
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 22:27:05 2010 +1300
+
+    Styled!
+
+commit 01a056e0f3a537f2b6baf0af72f98232f24f4d59
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 22:25:12 2010 +1300
+
+    Styled!
+
+commit fd16ee5deae0ca0ab4f98f074d61c5f662cb53c0
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 22:22:10 2010 +1300
+
+    Styled!
+
+commit 79bcf7a27442d7fccdec22dc6c707e2952b4fcdc
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 22:18:13 2010 +1300
+
+    Styled!
+
+commit 3b5ccd70e2cb9324000e851afb754fbdebe988c5
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 22:03:05 2010 +1300
+
+    Styled!
+
+commit 3c320632d83d3dd8be25821eb2fff1f5711eda25
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 21:55:57 2010 +1300
+
+    Styled!
+
+commit c8438fd5097be3a071ef17a10c10a6282125396c
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 21:50:21 2010 +1300
+
+    Styled!
+
+commit bf5da11b5de52319debdea09310ec1ed6745691d
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 21:47:20 2010 +1300
+
+    Styled!
+
+commit a668e4d9cfa0d3661a80f52ca399d88cd5cccdac
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 21:27:02 2010 +1300
+
+    Cleaned up logo img
+
+commit f42d57568f837fb35dd63902795f4227ce8a88b5
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 21:17:55 2010 +1300
+
+    Added logo
+
+commit 9111fb8ce1de356926eb335f8d673be714dbe196
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 21:06:05 2010 +1300
+
+    New layout
+
+commit 07ac4c391a4510654996b3c0fb9a0c49df431189
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 20:19:48 2010 +1300
+
+    Added stylesheets, example_user
+
+commit 11c8f14237b90a37e8137e5943daaadbc43bbbe1
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 17:45:32 2010 +1300
+
+    Added dynamic page titles
+
+commit 75ef746d6d62f293a9322570f4a39587f4c819a5
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 17:08:27 2010 +1300
+
+    Added help page
+
+commit fc0486657a42ae164fe68a83a2cf6188e8dafd66
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 16:45:15 2010 +1300
+
+    Trying to get routes sorted
+
+commit 70b080886a0c3d2ff491274ead0c9182509687e9
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 15:31:10 2010 +1300
+
+    deleted public/index.html
+
+commit dcde58e9d09c9d0c4494aebbe9ae8e997cb04f48
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 15:28:17 2010 +1300
+
+    Trying to setup pages--about route
+
+commit 71f4d28a6ef75afd58411c5f1bc50c81ad964286
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 14:43:13 2010 +1300
+
+    Try yet again
+
+commit 754716106433c80d1171c08108818a934deb97bc
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 14:32:39 2010 +1300
+
+    Stupid tests
+
+commit 739ca2f0bb9ca1fc3238930661a7254a3a85d66a
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 14:29:12 2010 +1300
+
+    Almost got tests working
+
+commit 5539d52da80387d5fd9b806b89735ed21290904e
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 11:17:59 2010 +1300
+
+    Added a pages controller
+
+commit 2c3978b18cfb71854ecaeefd7e29a8b337438d95
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 10:22:41 2010 +1300
+
+    Updated Readme
+
+commit 9a7d6cda83916e2b4d73731821b4b4a58d9018e0
+Author: Alex McMillan <mcmilar2@student.op.ac.nz>
+Date:   Sat Oct 2 10:19:57 2010 +1300
+
+    Initial Commit
