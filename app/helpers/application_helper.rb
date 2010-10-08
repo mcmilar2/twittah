@@ -11,7 +11,7 @@ module ApplicationHelper
 	end
 	def logo
 		logo_image = "images/logo.png"
-		'<img src='#{logo_image}' alt='Logo' />'
+		image_tag("#{logo_image}", :alt => "Logo Banner", :class => "round")
 	end
 
 end
