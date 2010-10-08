@@ -11,4 +11,7 @@
 	def help
 		@title = "Help"
 	end
+	def cards
+		@title = "Cards"
+	end
 end
