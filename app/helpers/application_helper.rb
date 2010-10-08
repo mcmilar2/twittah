@@ -11,7 +11,7 @@ module ApplicationHelper
 	end
 	def logo
 		logo_image = "images/logo.png"
-		"<img src='#{logo_image}' alt='Logo' />"
+		'<img src='#{logo_image}' alt='Logo' />'
 	end
 
 end
