@@ -5,6 +5,7 @@ Twittah::Application.routes.draw do
 	match '/help',	 	:to => 'pages#help'
 	match '/new',		:to => 'users#new'
 	match '/cards',		:to => 'pages#cards'
+	match '/signup',	:to => 'users#new'
 
 	root :to => 'pages#home'
   # The priority is based upon order of creation:

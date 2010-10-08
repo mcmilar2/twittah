@@ -47,5 +47,15 @@ describe PagesController do
 			response.should have_selector("title", :content => @base_title + " | Help")
 		end
 	end
+	describe "GET 'cards'" do
+		it "should be successful" do
+			get 'cards'
+			response.should be_success
+		end
+		it "should have the right title" do
+			get 'cards'
+			response.should have_selector("title", :content => @base_title + " | Cards")
+		end
+	end
 end
 			
