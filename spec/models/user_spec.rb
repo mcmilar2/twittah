@@ -3,10 +3,10 @@ require 'spec_helper'
 describe User do
 	before(:each) do
 		@attr = {
-			:name => "Example User",
-			:email => "user@example.com",
-			:pass => "foobar",
-			:pass_confirmation => "foobar"
+			:name 					=> "Example User",
+			:email 					=> "user@example.com",
+			:password 				=> "foobar",
+			:password_confirmation 	=> "foobar"
 		}
 	end
 
@@ -71,24 +71,24 @@ describe User do
 	
 	describe "password validations" do
 		it "should require a password" do
-			hash = @attr.merge(:pass => "", :pass_confirmation => "")
+			hash = @attr.merge(:password => "", :password_confirmation => "")
 			User.new(hash).should_not be_valid
 		end
 	
 		it "should require that the password matches the password confirmation" do
-			hash=@attr.merge(:pass_confirmation => "invalid")
+			hash=@attr.merge(:password_confirmation => "invalid")
 			User.new(hash).should_not be_valid
 		end
 		
 		it "should reject short passwords" do
 			too_short = "a" * 5
-			hash = @attr.merge(:pass => too_short, :pass_confirmation => too_short)
+			hash = @attr.merge(:password => too_short, :password_confirmation => too_short)
 			User.new(hash).should_not be_valid
 		end
 		
 		it "should reject long passwords" do
 			too_long = "a" * 41
-			hash = @attr.merge(:pass => too_long, :pass_confirmation => too_long)
+			hash = @attr.merge(:password => too_long, :password_confirmation => too_long)
 			User.new(hash).should_not be_valid
 		end
 	end
@@ -99,16 +99,16 @@ describe User do
 		end
 		
 		it "should have an encrypted password attribute" do
-			@user.should respond_to(:encrypted_pass)
+			@user.should respond_to(:encrypted_password)
 		end
 
 		it "should set the encrypted password" do
-			@user.encrypted_pass.should_not be_blank
+			@user.encrypted_password.should_not be_blank
 		end
 	
 		describe "has_password? method" do
 			it "should be true if the passwords match" do
-				@user.has_password?(@attr[:pass]).should be_true
+				@user.has_password?(@attr[:password]).should be_true
 			end
 
 			it "should be false if the passwords dont match" do
@@ -123,12 +123,12 @@ describe User do
 			end
 	
 			it "should return nil for an email address with no user" do
-				nonexistant_user = User.authenticate("foo@bar.com", @attr[:pass])
+				nonexistant_user = User.authenticate("foo@bar.com", @attr[:password])
 				nonexistant_user.should be_nil
 			end
 			
 			it "should return the user on email/password match" do
-				matching_user = User.authenticate(@attr[:email], @attr[:pass])
+				matching_user = User.authenticate(@attr[:email], @attr[:password])
 				matching_user.should == @user
 			end
 		end				

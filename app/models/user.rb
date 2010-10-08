@@ -1,39 +1,40 @@
 # == Schema Information
-# Schema version: 20101008034124
+# Schema version: 20101008041413
 #
 # Table name: users
 #
-#  id             :integer         not null, primary key
-#  name           :string(255)
-#  email          :string(255)
-#  created_at     :datetime
-#  updated_at     :datetime
-#  encrypted_pass :string(255)
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
 #
 
 require 'digest'
 
 class User < ActiveRecord::Base
-	attr_accessor :pass
-	attr_accessible :name, :email, :pass, :pass_confirmation
+	attr_accessor :password
+	attr_accessible :name, :email, :password, :password_confirmation
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	
-	validates :name, 	:presence 		=> true,
-						:length			=> { :maximum => 50 }
-	validates :email,	:presence 		=> true,
-						:format 		=> { :with => email_regex },
-						:uniqueness 	=> { :case_sensitive => false }
-	validates :pass,	:presence		=> true,
-						# automatically creates virtual attribute 'pass_confirmation'
-						:confirmation	=> true,
-						:length			=> { :within => 6..40 }
+	validates :name, 		:presence 		=> true,
+							:length			=> { :maximum => 50 }
+	validates :email,		:presence 		=> true,
+							:format 		=> { :with => email_regex },
+							:uniqueness 	=> { :case_sensitive => false }
+	validates :password,	:presence		=> true,
+							# automatically creates virtual attribute 'pass_confirmation'
+							:confirmation	=> true,
+							:length			=> { :within => 6..40 }
 
-	before_save :encrypt_pass
+	before_save :encrypt_password
 
 	# Returns true if the submitted password matches the user's password
 	def has_password?(submitted_password)
-		encrypted_pass == encrypt(submitted_password)	
+		encrypted_password == encrypt(submitted_password)	
 	end
 
 	def self.authenticate(email, submitted_password)
@@ -43,9 +44,9 @@ class User < ActiveRecord::Base
 	end
 
 	private
-	def encrypt_pass
+	def encrypt_password
 		self.salt = make_salt if new_record?
-		self.encrypted_pass = encrypt(pass)
+		self.encrypted_password = encrypt(password)
 	end
 
 	def encrypt(string)
@@ -53,7 +54,7 @@ class User < ActiveRecord::Base
 	end
 
 	def make_salt
-		secure_hash("#{Time.now.utc}--#{pass}")
+		secure_hash("#{Time.now.utc}--#{password}")
 	end
 	
 	def secure_hash(string)
