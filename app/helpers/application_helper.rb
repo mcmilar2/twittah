@@ -9,4 +9,9 @@ module ApplicationHelper
 			"#{base_title} | #{@title}"
 		end
 	end
+	def logo
+		logo_image = "images/logo.png"
+		"<img src='#{logo_image}' alt='Logo' />"
+	end
+
 end
