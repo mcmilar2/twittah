@@ -7,6 +7,7 @@ gem 'autotest'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'gravatar_image_tag'
 
 group :development do
 	gem "rspec-rails"
@@ -17,6 +18,7 @@ group :test do
 	gem "rspec-rails"
 	gem "rspec"
 	gem "spork"
+	gem "factory_girl_rails"
 end
 
 
