@@ -39,6 +39,16 @@ section h1 {
 	font-size: 200%;
 }
 
+ul.users {
+	margin-top: 1em;
+}
+
+.users li {
+	list-style: none;
+}
+
+
+
 
 
 /*   LINKS   */
