@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 	
-	before_filter :authenticate,	:only => [:index, :edit, :update, :destroy]
-	before_filter :correct_user,	:only => [:edit, :update]
-	before_filter :admin_user,		:only => :destroy
+	before_filter :authenticate,		:only => [:index, :edit, :update, :destroy]
+	before_filter :correct_user,		:only => [:edit, :update]
+	before_filter :admin_user,			:only => [:destroy]
+	before_filter :new_users_only,		:only => [:new, :create]
 
 	def new
 		@user = User.new
@@ -61,10 +62,21 @@ class UsersController < ApplicationController
 
 		def correct_user
 			@user = User.find(params[:id])
-			redirect_to(root_path) unless current_user?(@user)
+			redirect_to root_path unless current_user?(@user)
 		end
 
 		def admin_user
-			redirect_to(root_path) unless current_user.admin?
+			if current_user == User.find(params[:id])
+				flash[:error] = "You cannot delete yourself!"
+				redirect_to users_path
+			elsif !current_user.admin?
+				flash[:error] = "You are not an admin."
+				redirect_to users_path
+			end
+		end
+
+		def new_users_only
+			flash[:error] = "You are only allowed one account.  Please logout first."
+			redirect_to user_path(current_user) if signed_in?
 		end
 end

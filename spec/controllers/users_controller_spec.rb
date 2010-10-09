@@ -62,6 +62,33 @@ describe UsersController do
 				controller.should be_signed_in
 			end
 		end
+
+		describe "when already signed-in" do
+			before(:each) do
+				@user = test_sign_in(Factory(:user))
+				@attr = {	:name 					=> "Real Person",
+							:email					=> "user@exmaple.com",
+							:password				=> "foobar",
+							:password_confirmation	=> "foobar" }
+			end
+		
+			it "should not create a new user" do
+				lambda do
+					post :create, :user => @attr
+				end.should_not change(User, :count).by(1)
+			end
+		
+			it "should redirect to users profile path" do
+				post :create, :user => @attr
+				response.should redirect_to(user_path(@user))
+			end
+		
+			it "should have a flash message" do
+				lambda do
+					post :create, :user => @attr
+				end.should flash[:error] =~ /one account/i
+			end	 
+		end
 	end
 
 	####################################################
@@ -104,34 +131,47 @@ describe UsersController do
 	####################################################
 
 	describe "GET 'new'" do
-		it "should be successful" do
-			get 'new'
-			response.should be_success
+		describe "for non-signed-in-users" do
+			it "should be successful" do
+				get 'new'
+				response.should be_success
+			end
+			
+			it "should have the right title" do
+				get 'new'
+				response.should have_selector("title", :content => 'Sign Up!')
+			end
+			
+			it "should have a name field" do
+				get 'new'
+				response.should have_selector("input[name='user[name]'][type='text']")
+			end
+	
+			it "should have an email field" do
+				get 'new'
+				response.should have_selector("input[name='user[email]'][type='text']")
+			end
+	
+			it "should have a password field" do
+				get 'new'
+				response.should have_selector("input[name='user[password]'][type='password']")
+			end
+			
+			it "should have a password confirmation field" do
+				get 'new'
+				response.should have_selector("input[name='user[password_confirmation]'][type='password']")
+			end
 		end
 		
-		it "should have the right title" do
-			get 'new'
-			response.should have_selector("title", :content => 'Sign Up!')
-		end
-		
-		it "should have a name field" do
-			get 'new'
-			response.should have_selector("input[name='user[name]'][type='text']")
-		end
-
-		it "should have an email field" do
-			get 'new'
-			response.should have_selector("input[name='user[email]'][type='text']")
-		end
-
-		it "should have a password field" do
-			get 'new'
-			response.should have_selector("input[name='user[password]'][type='password']")
-		end
-		
-		it "should have a password confirmation field" do
-			get 'new'
-			response.should have_selector("input[name='user[password_confirmation]'][type='password']")
+		describe "for signed-in users" do
+			before(:each) do
+				@user = test_sign_in(Factory(:user))
+			end
+	
+			it "should redirect to root_path" do
+				get 'new'
+				response.should redirect_to(user_path(@user))
+			end
 		end
 	end
 
@@ -141,8 +181,7 @@ describe UsersController do
 
 	describe "GET 'edit'" do
 		before(:each) do
-			@user = Factory(:user)
-			test_sign_in(@user)
+			@user = test_sign_in(Factory(:user))
 		end
 	
 		it "should be successful" do
@@ -202,13 +241,24 @@ describe UsersController do
 					response.should have_selector("li", :content => user.name)
 				end
 			end
-		
+
 			it "should paginate users" do
 				get :index
 				response.should have_selector("div.pagination")
 				response.should have_selector("span.disabled", :content => "Previous")
 				response.should have_selector("a", :href => "/users?page=2", :content => "2")
 				response.should have_selector("a", :href => "/users?page=2", :content => "Next")
+			end
+
+			it "should not display 'delete' for non-admin users" do
+				get :index
+				response.should_not have_selector("a", :content => "Delete")
+			end
+
+			it "should display 'delete' for admin users" do
+				@user.toggle!(:admin)
+				get :index
+				response.should have_selector("a", :content => "Delete")
 			end
 		end
 	end
@@ -324,14 +374,14 @@ describe UsersController do
 			it "should protect the page" do
 				test_sign_in(@user)
 				delete :destroy, :id => @user
-				response.should redirect_to(root_path)
+				response.should redirect_to(users_path)
 			end
 		end
 
 		describe "as an admin user" do
 			before(:each) do
-				admin = Factory(:user, :email => "admin@example.com", :admin => true)
-				test_sign_in(admin)
+				@admin = Factory(:user, :email => "admin@example.com", :admin => true)
+				test_sign_in(@admin)
 			end
 
 			it "should destroy the user" do
@@ -342,6 +392,22 @@ describe UsersController do
 
 			it "should redirect to the users page" do
 				delete :destroy, :id => @user
+				response.should redirect_to(users_path)
+			end
+
+			it "should not allow self-deletion" do
+				lambda do
+					delete :destroy, :id => @admin
+				end.should_not change(User, :count).by(-1)
+			end
+			
+			it "should flash message on attempt at self-deletion" do
+				delete :destroy, :id => @admin
+				flash[:error].should =~ /cannot delete yourself/i
+			end
+
+			it "should redirect to users index on attempt at self-deletion" do
+				delete :destroy, :id => @admin
 				response.should redirect_to(users_path)
 			end
 		end

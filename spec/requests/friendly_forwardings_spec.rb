@@ -8,7 +8,7 @@ describe "FriendlyForwardings" do
 		fill_in :email,			:with => user.email
 		fill_in :password,		:with => user.password
 		click_button
-		# Should follow the redirect again, this time to users/edit.
-		response.should render_template('users/edit')
+		# Should follow the redirect again, this time to users/show.
+		response.should render_template('users/show')
 	end
 end
