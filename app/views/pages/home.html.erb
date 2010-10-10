@@ -1,5 +1,21 @@
-<h1>Welcome to twittah!</h1>
-<p>The incredible social networking/communications application with no real purpose whatsoever!</p>
-<p>LIMITED TIME SPECIAL! -= Only $329.99 per day! =- LIMITED TIME SPECIAL!</p>
-
-<%= link_to "SIGN UP NOW!!", signup_path, :class=>"signup_button roundlg" %>
+<% if signed_in? %>
+	<table class='front' summary='For signed-in Users'>
+		<tr>
+			<td class='main'>
+				<h1 class='micropost'>Anything you'd like to say?</h1>
+				<%= render 'shared/micropost_form' %>
+				<%= render 'shared/feed' %>
+			</td>
+			<td class='sidebar roundsm'>
+				<%= render 'shared/user_info' %>
+			</td>
+		</tr>
+	</table>
+<% else %>
+	<h1>Welcome to twittah!</h1>
+	<p>The incredible social networking/communications application with no real purpose whatsoever!</p>
+	<h2>LIMITED TIME SPECIAL!</h2>
+	<p>Only <b>$329.99</b> per day</p>
+	<p>While stocks last.  No refunds.</p>
+	<%= link_to "SIGN UP NOW!!", signup_path, :class=>"signup_button roundlg" %>
+<% end %>
