@@ -73,7 +73,9 @@ class UsersController < ApplicationController
 		end
 
 		def new_users_only
-			flash[:error] = "You are only allowed one account.  Please logout first."
-			redirect_to user_path(current_user) if signed_in?
+			if signed_in?
+				flash[:error] = "You are only allowed one account.  Please logout first."
+				redirect_to user_path(current_user)
+			end
 		end
 end
