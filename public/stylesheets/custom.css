@@ -281,7 +281,24 @@ form.new_micropost {
 	margin-bottom: 2em;
 }
 
-form.new_micropost textarea {
-	height: 4em;
+form.new_micropost div.posting {
+	width: 80%;
+}
+
+form.new_micropost div.posting textarea {
+	height: 6em;
 	margin-bottom: 0;
 }
+
+form.new_micropost div.posting div.left {
+	width: 50%;
+	float: left;
+}
+
+form.new_micropost div.posting div.right {
+	width: 50%;
+	float: right;
+	text-align: right;
+}
+
+

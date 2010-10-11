@@ -1,9 +1,15 @@
 <%= form_for @micropost do |f| %>
 	<%= render 'shared/error_messages', :object => f.object %>
-	<div class='field'>
-		<%= f.text_area :content %>
-	</div>
-	<div class='actions'>
-		<%= f.submit "Submit" %>
+	<div class='posting'>
+		<div class='field'>
+			<%= f.text_area	:content,
+							:onKeyPress => "textarea_counter(	document.getElementById('micropost_content'),
+																document.getElementById('micropost_counter'),
+																200)" %>
+		</div>
+		<div class='actions'>
+			<div class='left'><%= f.submit "Submit" %></div>
+			<div class='right'><input readonly type='text' id='micropost_counter' size='3' maxlength='3' value='200' /> chars left.</div>
+		</div>
 	</div>
 <% end %>
